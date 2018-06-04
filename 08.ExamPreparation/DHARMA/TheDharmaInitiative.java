@@ -10,14 +10,14 @@ import java.util.*;
 public class TheDharmaInitiative {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Map<String, List<Pair<String, Integer>>> stationRecruits = new HashMap<>();
+        Map<String, Map<Integer, String>> stationRecruits = new HashMap<>();
         initializeStations(stationRecruits);
         addRecruits(reader, stationRecruits);
         String command = reader.readLine();
         printOutput(stationRecruits, command);
     }
 
-    private static void printOutput(Map<String, List<Pair<String, Integer>>> stationRecruits, String command) {
+    private static void printOutput(Map<String, Map<Integer, String>> stationRecruits, String command) {
         if (command.equals("DHARMA Initiative")) {
             stationRecruits.entrySet().stream()
                     .sorted((a, b) -> {
@@ -41,10 +41,10 @@ public class TheDharmaInitiative {
             );
             System.out.println(stations.get(command));
             if (stationRecruits.get(command).size() > 0) {
-                stationRecruits.get(command).stream()
-                        .sorted(Comparator.comparing(Pair::getValue, Comparator.reverseOrder()))
+                stationRecruits.get(command).entrySet().stream()
+                        .sorted(Comparator.comparing(Map.Entry::getKey, Comparator.reverseOrder()))
                         .forEach(pair -> {
-                            System.out.printf("###%s - %s%n", pair.getKey(), pair.getValue());
+                            System.out.printf("###%s - %s%n", pair.getValue(), pair.getKey());
                         });
             } else {
                 System.out.println("No recruits.");
@@ -54,23 +54,23 @@ public class TheDharmaInitiative {
         }
     }
 
-    private static void addRecruits(BufferedReader reader, Map<String, List<Pair<String, Integer>>> stationRecruits) throws IOException {
+    private static void addRecruits(BufferedReader reader, Map<String, Map<Integer, String>> stationRecruits) throws IOException {
         for (String input = reader.readLine(); !input.equals("Recruit"); input = reader.readLine()) {
             String[] data = input.split(":");
             String name = data[0];
             int number = Integer.parseInt(data[1]);
             String station = data[2];
             if (stationRecruits.containsKey(station)) {
-                stationRecruits.get(station).add(new Pair<>(name, number));
+                stationRecruits.get(station).put(number, name);
             }
         }
     }
 
-    private static void initializeStations(Map<String, List<Pair<String, Integer>>> stationRecruits) {
-        stationRecruits.put("Arrow", new ArrayList<>());
-        stationRecruits.put("Flame", new ArrayList<>());
-        stationRecruits.put("Hydra", new ArrayList<>());
-        stationRecruits.put("Orchid", new ArrayList<>());
-        stationRecruits.put("Pearl", new ArrayList<>());
+    private static void initializeStations(Map<String, Map<Integer, String>> stationRecruits) {
+        stationRecruits.put("Arrow", new HashMap<>());
+        stationRecruits.put("Flame", new HashMap<>());
+        stationRecruits.put("Hydra", new HashMap<>());
+        stationRecruits.put("Orchid", new HashMap<>());
+        stationRecruits.put("Pearl", new HashMap<>());
     }
 }
