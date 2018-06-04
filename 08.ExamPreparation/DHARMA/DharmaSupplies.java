@@ -26,7 +26,7 @@ public class DharmaSupplies {
             inputLines++;
         }
         int n = totalCrates / inputLines;
-        String regex = String.format("\\[#(\\d{%d}|[a-z]{%d})([A-Za-z0-9\\s]+)#\\1]", n, n);
+        String regex = String.format("\\[#(\\d{%1$d}|[a-z]{%1$d})([A-Za-z0-9\\s]+)#\\1]", n);
         pattern = Pattern.compile(regex);
         int validCrates = 0;
         int foodAmount = 0;
