@@ -17,7 +17,7 @@ public class RegularExtensions {
                 while (start >= 0) {
                     String replacement = new StringBuilder(input).reverse().toString();
                     text = text.replace(start, start + replacement.length(), replacement);
-                    start = text.indexOf(input, start + 1);
+                    start = text.indexOf(input, start + input.length());
                 }
             } else {
                 String regex = input.replace("%", "\\S*");
@@ -30,7 +30,7 @@ public class RegularExtensions {
                     while (start >= 0) {
                         String replacement = new StringBuilder(match).reverse().toString();
                         text.replace(start, start + match.length(), replacement);
-                        start = text.indexOf(match, start + 1);
+                        start = text.indexOf(match, start + match.length());
                     }
                 }
             }
