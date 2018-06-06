@@ -33,13 +33,11 @@ public class TheVLogger_FunSolution {
                     if (comp == 0) {
                         comp = Long.compare(
                                 vloggerFollowers.values().stream()
-                                        .flatMap(Collection::stream)
-                                        .filter(f -> f.equals(a.getKey()))
+                                        .filter(f -> f.contains(a.getKey()))
                                         .count()
                                 ,
                                 vloggerFollowers.values().stream()
-                                        .flatMap(Collection::stream)
-                                        .filter(f -> f.equals(b.getKey()))
+                                        .filter(f -> f.contains(b.getKey()))
                                         .count());
                     }
                     return comp;
@@ -50,8 +48,7 @@ public class TheVLogger_FunSolution {
                             , kvp.getKey()
                             , vloggerFollowers.get(kvp.getKey()).size()
                             , vloggerFollowers.values().stream()
-                                    .flatMap(Collection::stream)
-                                    .filter(a -> a.equals(kvp.getKey()))
+                                    .filter(a -> a.contains(kvp.getKey()))
                                     .count());
                     if (counter[0]++ == 1) {
                         vloggerFollowers.get(kvp.getKey()).stream()
