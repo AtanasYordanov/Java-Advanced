@@ -27,11 +27,8 @@ public class RegularExtensions {
                 while (matcher.find()) {
                     String match = matcher.group(0);
                     int start = text.indexOf(match);
-                    while (start >= 0) {
-                        String replacement = new StringBuilder(match).reverse().toString();
-                        text.replace(start, start + match.length(), replacement);
-                        start = text.indexOf(match, start + match.length());
-                    }
+                    String replacement = new StringBuilder(match).reverse().toString();
+                    text.replace(start, start + match.length(), replacement);
                 }
             }
         }
