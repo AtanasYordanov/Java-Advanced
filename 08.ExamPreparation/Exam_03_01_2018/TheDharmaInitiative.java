@@ -16,7 +16,7 @@ public class TheDharmaInitiative {
     }
 
     private static void printOutput(Map<String, Map<Integer, String>> stationRecruits, String command) {
-        if (command.equals("Exam_03_01_2018 Initiative")) {
+        if (command.equals("DHARMA Initiative")) {
             stationRecruits.entrySet().stream()
                     .sorted((a, b) -> {
                         int comp = b.getValue().size() - a.getValue().size();
@@ -26,7 +26,7 @@ public class TheDharmaInitiative {
                         return comp;
                     })
                     .forEach(pair -> {
-                        System.out.printf("The %s has %d Exam_03_01_2018 recruits in it.%n"
+                        System.out.printf("The %s has %d DHARMA recruits in it.%n"
                                 , pair.getKey(), pair.getValue().size());
                     });
         } else if (stationRecruits.containsKey(command)) {
@@ -48,7 +48,7 @@ public class TheDharmaInitiative {
                 System.out.println("No recruits.");
             }
         } else {
-            System.out.println("Exam_03_01_2018 Initiative does not have such a station!");
+            System.out.println("DHARMA Initiative does not have such a station!");
         }
     }
 
