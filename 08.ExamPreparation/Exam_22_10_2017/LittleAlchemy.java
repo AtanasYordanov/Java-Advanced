@@ -26,7 +26,6 @@ public class LittleAlchemy {
                         queue.offer(current);
                     }
                 }
-
             } else {
                 if (goldStonesCount > 0) {
                     queue.offer(n);
