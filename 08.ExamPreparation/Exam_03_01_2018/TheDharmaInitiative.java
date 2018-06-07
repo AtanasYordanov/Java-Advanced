@@ -53,8 +53,8 @@ public class TheDharmaInitiative {
     }
 
     private static void addRecruits(BufferedReader reader, Map<String, Map<Integer, String>> stationRecruits) throws IOException {
-        for (String input = reader.readLine(); !input.equals("Recruit"); input = reader.readLine()) {
-            String[] data = input.split(":");
+        for (String line = reader.readLine(); !line.equals("Recruit"); line = reader.readLine()) {
+            String[] data = line.split(":");
             String name = data[0];
             int number = Integer.parseInt(data[1]);
             String station = data[2];

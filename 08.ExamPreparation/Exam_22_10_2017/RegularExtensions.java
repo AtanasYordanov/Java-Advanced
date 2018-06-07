@@ -11,16 +11,16 @@ public class RegularExtensions {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder text = new StringBuilder(reader.readLine());
 
-        for (String input = reader.readLine(); !input.equals("Print"); input = reader.readLine()) {
-            if (!input.contains("%")) {
-                int start = text.indexOf(input);
+        for (String line = reader.readLine(); !line.equals("Print"); line = reader.readLine()) {
+            if (!line.contains("%")) {
+                int start = text.indexOf(line);
                 while (start >= 0) {
-                    String replacement = new StringBuilder(input).reverse().toString();
+                    String replacement = new StringBuilder(line).reverse().toString();
                     text = text.replace(start, start + replacement.length(), replacement);
-                    start = text.indexOf(input, start + input.length());
+                    start = text.indexOf(line, start + line.length());
                 }
             } else {
-                String regex = input.replace("%", "\\S*");
+                String regex = line.replace("%", "\\S*");
                 regex = regex.replaceAll("\\.", "\\\\.");
                 Pattern pattern = Pattern.compile(regex);
                 Matcher matcher = pattern.matcher(text);

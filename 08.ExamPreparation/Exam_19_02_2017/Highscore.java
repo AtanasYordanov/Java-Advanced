@@ -11,8 +11,8 @@ public class Highscore {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, List<Pair<String, Integer>>> playerStatistics = new LinkedHashMap<>();
-        for (String input = reader.readLine(); !input.equals("osu!"); input = reader.readLine()) {
-            String[] tokens = input.split(" |<->");
+        for (String line = reader.readLine(); !line.equals("osu!"); line = reader.readLine()) {
+            String[] tokens = line.split(" |<->");
             int firstPlayerScore = Integer.parseInt(tokens[0]);
             String firstPlayerName = tokens[1];
             String secondPlayerName = tokens[2];

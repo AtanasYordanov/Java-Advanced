@@ -9,8 +9,8 @@ public class PopulationCounter {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, LinkedHashMap<String, Long>> countriesMap = new LinkedHashMap<>();
-        for (String input = reader.readLine(); !input.equals("report"); input = reader.readLine()) {
-            String[] tokens = input.split("\\|");
+        for (String line = reader.readLine(); !line.equals("report"); line = reader.readLine()) {
+            String[] tokens = line.split("\\|");
             String city = tokens[0];
             String country = tokens[1];
             long population = Long.parseLong(tokens[2]);

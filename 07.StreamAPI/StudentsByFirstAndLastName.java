@@ -10,8 +10,8 @@ public class StudentsByFirstAndLastName {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<String> students = new ArrayList<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            students.add(input);
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            students.add(line);
         }
         students.stream()
                 .filter(s -> {

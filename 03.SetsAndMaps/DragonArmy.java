@@ -57,51 +57,51 @@ public class DragonArmy {
         }
         System.out.print(sb);
     }
-}
 
-class Dragon implements Comparable<Dragon> {
-    private String name;
-    private int damage;
-    private int health;
-    private int armor;
+    private static class Dragon implements Comparable<Dragon> {
+        private String name;
+        private int damage;
+        private int health;
+        private int armor;
 
-    public Dragon(String name, int damage, int health, int armor) {
-        this.name = name;
-        this.damage = damage;
-        this.health = health;
-        this.armor = armor;
-    }
+        Dragon(String name, int damage, int health, int armor) {
+            this.name = name;
+            this.damage = damage;
+            this.health = health;
+            this.armor = armor;
+        }
 
-    public String getName() {
-        return name;
-    }
+        String getName() {
+            return name;
+        }
 
-    public int getDamage() {
-        return damage;
-    }
+        int getDamage() {
+            return damage;
+        }
 
-    public int getHealth() {
-        return health;
-    }
+        int getHealth() {
+            return health;
+        }
 
-    public int getArmor() {
-        return armor;
-    }
+        int getArmor() {
+            return armor;
+        }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
+        void setDamage(int damage) {
+            this.damage = damage;
+        }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
+        void setHealth(int health) {
+            this.health = health;
+        }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
+        void setArmor(int armor) {
+            this.armor = armor;
+        }
 
-    @Override
-    public int compareTo(Dragon o) {
-        return this.name.compareTo(o.name);
+        @Override
+        public int compareTo(Dragon o) {
+            return this.name.compareTo(o.name);
+        }
     }
 }

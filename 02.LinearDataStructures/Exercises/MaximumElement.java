@@ -27,16 +27,14 @@ public class MaximumElement {
                 case "2":
                     if (stack.pop() == maxElement) {
                         maxElement = Integer.MIN_VALUE;
-                    }
-                    break;
-                case "3":
-                    if (maxElement == Integer.MIN_VALUE){
                         for (Integer el : stack) {
                             if (el > maxElement) {
                                 maxElement = el;
                             }
                         }
                     }
+                    break;
+                case "3":
                     sb.append(maxElement).append(System.lineSeparator());
                     break;
             }

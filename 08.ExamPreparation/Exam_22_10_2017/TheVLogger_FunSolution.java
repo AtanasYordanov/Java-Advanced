@@ -10,8 +10,8 @@ public class TheVLogger_FunSolution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, Set<String>> vloggerFollowers = new HashMap<>();
 
-        for (String input = reader.readLine(); !input.equals("Statistics"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("Statistics"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             String vlogger = tokens[0];
             String command = tokens[1];
             if (command.equals("joined")) {
@@ -24,8 +24,8 @@ public class TheVLogger_FunSolution {
                 }
             }
         }
-        System.out.printf("The V-Logger has a total of %d vloggers in its logs.%n", vloggerFollowers.size());
 
+        System.out.printf("The V-Logger has a total of %d vloggers in its logs.%n", vloggerFollowers.size());
         final int[] counter = {1};
         vloggerFollowers.entrySet().stream()
                 .sorted((a, b) -> {

@@ -62,8 +62,8 @@ public class InfernoIII {
 
     private static Map<String, Set<Integer>> getFilters(BufferedReader reader) throws IOException {
         Map<String, Set<Integer>> filters = new HashMap<>();
-        for (String input = reader.readLine(); !input.equals("Forge"); input = reader.readLine()) {
-            String[] tokens = input.split(";");
+        for (String line = reader.readLine(); !line.equals("Forge"); line = reader.readLine()) {
+            String[] tokens = line.split(";");
             String command = tokens[0];
             String type = tokens[1];
             int parameter = Integer.parseInt(tokens[2]);

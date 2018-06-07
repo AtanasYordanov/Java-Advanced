@@ -40,14 +40,6 @@ public class SerializeCustomObject {
             this.name = name;
         }
 
-        public int getStudentsCount() {
-            return studentsCount;
-        }
-
-        public void setStudentsCount(int studentsCount) {
-            this.studentsCount = studentsCount;
-        }
-
         @Override
         public String toString() {
             return this.name + " -> " + this.studentsCount;

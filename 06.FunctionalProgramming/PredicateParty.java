@@ -11,8 +11,8 @@ public class PredicateParty {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<String> names = Arrays.stream(reader.readLine().split(" ")).collect(Collectors.toList());
-        for (String input = reader.readLine(); !input.equals("Party!"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("Party!"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             String command = tokens[0];
             String type = tokens[1];
             String param = tokens[2];

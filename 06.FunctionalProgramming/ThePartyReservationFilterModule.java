@@ -64,8 +64,8 @@ public class ThePartyReservationFilterModule {
 
     private static Map<String, Set<String>> getFilters(BufferedReader reader) throws IOException {
         Map<String, Set<String>> filters = new HashMap<>();
-        for (String input = reader.readLine(); !input.equals("Print"); input = reader.readLine()) {
-            String[] tokens = input.split(";");
+        for (String line = reader.readLine(); !line.equals("Print"); line = reader.readLine()) {
+            String[] tokens = line.split(";");
             String command = tokens[0];
             String type = tokens[1];
             String parameter = tokens[2];

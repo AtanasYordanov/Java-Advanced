@@ -13,8 +13,8 @@ public class VehiclePark {
         List<String> vehicles = Arrays.stream(reader.readLine().split(" ")).collect(Collectors.toList());
         StringBuilder sb = new StringBuilder();
         int soldCount = 0;
-        for (String input = reader.readLine(); !input.equals("End of customers!"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("End of customers!"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             String type = String.valueOf(tokens[0].charAt(0)).toLowerCase();
             String countAsString = tokens[2];
             String product = type + countAsString;

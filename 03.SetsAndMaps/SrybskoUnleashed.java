@@ -13,8 +13,8 @@ public class SrybskoUnleashed {
         Map<String, Map<String, Long>> venues = new LinkedHashMap<>();
         String regex = "^(?<singer>[\\w ]+)\\b @(?<venue>[\\w ]+)\\b (?<price>[\\d]+) (?<tickets>[\\d]+)";
         Pattern pattern = Pattern.compile(regex);
-        for (String input = reader.readLine(); !input.equals("End"); input = reader.readLine()) {
-            Matcher matcher = pattern.matcher(input);
+        for (String line = reader.readLine(); !line.equals("End"); line = reader.readLine()) {
+            Matcher matcher = pattern.matcher(line);
             while (matcher.find()) {
                 String singer = matcher.group("singer");
                 String venue = matcher.group("venue");

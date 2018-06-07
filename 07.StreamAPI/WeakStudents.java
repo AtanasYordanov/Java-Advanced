@@ -12,8 +12,8 @@ public class WeakStudents {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, List<Integer>> studentGrades = new LinkedHashMap<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             String name = tokens[0] + " " + tokens[1];
             studentGrades.putIfAbsent(name, new ArrayList<>());
             for (int i = 2; i < tokens.length; i++) {

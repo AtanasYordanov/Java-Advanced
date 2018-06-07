@@ -8,9 +8,7 @@ import java.util.Arrays;
 public class OddAndEvenPairs {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int[] numbers = Arrays.stream(reader.readLine().split(" "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] numbers = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         if (numbers.length % 2 == 1) {
             System.out.println("invalid length");
             return;

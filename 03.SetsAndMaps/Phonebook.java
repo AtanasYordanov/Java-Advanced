@@ -9,8 +9,8 @@ public class Phonebook {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, String> phonebook = new HashMap<>();
-        for (String input = reader.readLine(); !input.equals("search"); input = reader.readLine()) {
-            String[] tokens = input.split("-");
+        for (String line = reader.readLine(); !line.equals("search"); line = reader.readLine()) {
+            String[] tokens = line.split("-");
             String name = tokens[0];
             String phone = tokens[1];
             phonebook.put(name, phone);

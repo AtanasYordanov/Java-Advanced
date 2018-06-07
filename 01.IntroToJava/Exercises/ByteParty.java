@@ -12,8 +12,8 @@ public class ByteParty {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = Integer.parseInt(reader.readLine());
         }
-        for (String input = reader.readLine(); !input.equals("party over"); input = reader.readLine()) {
-            String[] tokens = input.split("\\s+");
+        for (String line = reader.readLine(); !line.equals("party over"); line = reader.readLine()) {
+            String[] tokens = line.split("\\s+");
             int command = Integer.parseInt(tokens[0]);
             int position = Integer.parseInt(tokens[1]);
             for (int i = 0; i < numbers.length; i++) {

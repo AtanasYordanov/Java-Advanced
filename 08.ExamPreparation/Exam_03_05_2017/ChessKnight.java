@@ -19,8 +19,8 @@ public class ChessKnight {
         int knightCol = Integer.parseInt(startingPosition[1]);
         int invalidCount = 0, outOfBoundsCount = 0;
         List<String> piecesTaken = new ArrayList<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            String[] tokens = input.split(" -> ");
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            String[] tokens = line.split(" -> ");
             String[] currentPosition = tokens[0].split("");
             String[] targetPosition = tokens[1].split("");
             int currentRow = Integer.parseInt(currentPosition[0]);

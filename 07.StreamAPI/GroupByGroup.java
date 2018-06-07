@@ -12,10 +12,10 @@ public class GroupByGroup {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<Student> students = new ArrayList<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            int index = input.lastIndexOf(" ");
-            String name = input.substring(0, index);
-            int group = Integer.parseInt(input.substring(index + 1));
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            int index = line.lastIndexOf(" ");
+            String name = line.substring(0, index);
+            int group = Integer.parseInt(line.substring(index + 1));
             students.add(new Student(name, group));
         }
         students.stream()

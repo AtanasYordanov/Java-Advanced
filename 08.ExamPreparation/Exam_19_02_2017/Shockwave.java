@@ -11,8 +11,8 @@ public class Shockwave {
         int rows = Integer.parseInt(dimensions[0]);
         int cols = Integer.parseInt(dimensions[1]);
         int[][] matrix = new int[rows][cols];
-        for (String input = reader.readLine(); !input.equals("Here We Go"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("Here We Go"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             int x1 = Integer.parseInt(tokens[0]);
             int y1 = Integer.parseInt(tokens[1]);
             int x2 = Integer.parseInt(tokens[2]);

@@ -10,8 +10,8 @@ public class ExtractHyperlinks {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            sb.append(input);
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            sb.append(line);
         }
         String text = sb.toString();
         sb = new StringBuilder();

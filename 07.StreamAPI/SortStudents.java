@@ -10,8 +10,8 @@ public class SortStudents {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<String> names = new ArrayList<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            names.add(input);
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            names.add(line);
         }
         names.stream()
                 .sorted((a, b) -> {

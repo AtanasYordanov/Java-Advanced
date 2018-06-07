@@ -10,10 +10,10 @@ public class FilterStudentsByPhone {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, String> studentsEmails = new LinkedHashMap<>();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            int index = input.lastIndexOf(" ");
-            String name = input.substring(0, index);
-            String phone = input.substring(index + 1);
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            int index = line.lastIndexOf(" ");
+            String name = line.substring(0, index);
+            String phone = line.substring(index + 1);
             studentsEmails.put(name, phone);
         }
         studentsEmails.entrySet().stream()

@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 public class DharmaSonarFence {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        for (String input = reader.readLine(); !input.equals("Reprogram"); input = reader.readLine()) {
-            int num = Integer.parseInt(input);
+        for (String line = reader.readLine(); !line.equals("Reprogram"); line = reader.readLine()) {
+            int num = Integer.parseInt(line);
             for (int i = 31; i >= 1; i--) {
                 if (getBit(num, i) == getBit(num, i - 1)) {
                     num = flipBit(num, i);

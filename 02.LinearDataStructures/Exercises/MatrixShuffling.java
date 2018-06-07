@@ -13,8 +13,8 @@ public class MatrixShuffling {
         String[][] matrix = new String[rows][cols];
         fillMatrix(reader, rows, cols, matrix);
         StringBuilder sb = new StringBuilder();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            tokens = line.split(" ");
             try {
                 int row1 = Integer.parseInt(tokens[1]);
                 int col1 = Integer.parseInt(tokens[2]);

@@ -17,8 +17,8 @@ public class DharmaSupplies {
         int totalCrates = 0;
         int inputLines = 0;
         List<String> crates = new ArrayList<>();
-        for (String input = reader.readLine(); !input.equals("Collect"); input = reader.readLine()) {
-            Matcher matcher = pattern.matcher(input);
+        for (String line = reader.readLine(); !line.equals("Collect"); line = reader.readLine()) {
+            Matcher matcher = pattern.matcher(line);
             while (matcher.find()) {
                 crates.add(matcher.group(0));
                 totalCrates++;

@@ -10,8 +10,8 @@ public class ReplaceATag {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            sb.append(input).append(System.lineSeparator());
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            sb.append(line).append(System.lineSeparator());
         }
         String text = sb.toString();
         String regex = "<a href=.+?>(.|\\r\\n)*?</a>";

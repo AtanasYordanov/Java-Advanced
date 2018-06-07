@@ -9,8 +9,8 @@ public class HandsOfCards {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, Set<String>> hands = new LinkedHashMap<>();
-        for (String input = reader.readLine(); !input.equals("JOKER"); input = reader.readLine()) {
-            String[] tokens = input.split(": |, ");
+        for (String line = reader.readLine(); !line.equals("JOKER"); line = reader.readLine()) {
+            String[] tokens = line.split(": |, ");
             String playerName = tokens[0];
             hands.putIfAbsent(playerName, new HashSet<>());
             for (int i = 1; i < tokens.length; i++) {

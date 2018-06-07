@@ -11,8 +11,8 @@ public class TheVLogger_SmartSolution {
         Map<String, Set<String>> vloggerFollowers = new TreeMap<>();
         Map<String, Set<String>> vloggerFollowing = new HashMap<>();
 
-        for (String input = reader.readLine(); !input.equals("Statistics"); input = reader.readLine()) {
-            String[] tokens = input.split(" ");
+        for (String line = reader.readLine(); !line.equals("Statistics"); line = reader.readLine()) {
+            String[] tokens = line.split(" ");
             String vlogger = tokens[0];
             String command = tokens[1];
             if (command.equals("joined")) {

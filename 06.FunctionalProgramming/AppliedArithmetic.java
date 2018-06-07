@@ -20,8 +20,8 @@ public class AppliedArithmetic {
                 "subtract", subtract,
                 "multiply", multiply,
                 "print", print);
-        for (String command = reader.readLine(); !command.equals("end"); command = reader.readLine()) {
-            consumers.get(command).accept(numbers);
+        for (String line = reader.readLine(); !line.equals("end"); line = reader.readLine()) {
+            consumers.get(line).accept(numbers);
         }
     }
 

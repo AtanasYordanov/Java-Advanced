@@ -11,10 +11,10 @@ public class UserLogs {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, Map<String, Integer>> logs = new TreeMap<>();
-        for (String input = reader.readLine(); !input.equals("end"); input = reader.readLine()) {
+        for (String line = reader.readLine(); !line.equals("end"); line = reader.readLine()) {
             String regex = "^IP=(?<ip>(\\d+\\.?)+|(.+:.+)\\b) .+ user=(?<username>\\w+)";
             Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(input);
+            Matcher matcher = pattern.matcher(line);
             while (matcher.find()) {
                 String username = matcher.group("username");
                 String ip = matcher.group("ip");

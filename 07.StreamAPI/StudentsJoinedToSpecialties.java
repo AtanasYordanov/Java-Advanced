@@ -10,16 +10,16 @@ public class StudentsJoinedToSpecialties {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<StudentSpecialty> specialties = new ArrayList<>();
         Map<Integer, String> students = new HashMap<>();
-        for (String input = reader.readLine(); !input.equals("Students:"); input = reader.readLine()) {
-            int index = input.lastIndexOf(" ");
-            String name = input.substring(0, index);
-            int facultyNumber = Integer.parseInt(input.substring(index + 1));
+        for (String line = reader.readLine(); !line.equals("Students:"); line = reader.readLine()) {
+            int index = line.lastIndexOf(" ");
+            String name = line.substring(0, index);
+            int facultyNumber = Integer.parseInt(line.substring(index + 1));
             specialties.add(new StudentSpecialty(name, facultyNumber));
         }
-        for (String input = reader.readLine(); !input.equals("END"); input = reader.readLine()) {
-            int index = input.indexOf(" ");
-            int facultyNumber = Integer.parseInt(input.substring(0, index));
-            String name = input.substring(index + 1);
+        for (String line = reader.readLine(); !line.equals("END"); line = reader.readLine()) {
+            int index = line.indexOf(" ");
+            int facultyNumber = Integer.parseInt(line.substring(0, index));
+            String name = line.substring(index + 1);
             students.put(facultyNumber, name);
         }
         specialties.stream()

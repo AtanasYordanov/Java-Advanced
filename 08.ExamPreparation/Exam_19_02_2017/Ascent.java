@@ -14,11 +14,11 @@ public class Ascent {
         Map<String, String> memo = new LinkedHashMap<>();
         String regex = "[,_]([a-zA-Z]+)(\\d)";
         Pattern pattern = Pattern.compile(regex);
-        for (String input = reader.readLine(); !input.equals("Ascend"); input = reader.readLine()) {
+        for (String line = reader.readLine(); !line.equals("Ascend"); line = reader.readLine()) {
             for (Map.Entry<String, String> pair : memo.entrySet()) {
-                input = input.replaceAll(pair.getKey(), pair.getValue());
+                line = line.replaceAll(pair.getKey(), pair.getValue());
             }
-            Matcher matcher = pattern.matcher(input);
+            Matcher matcher = pattern.matcher(line);
             while (matcher.find()) {
                 String match = matcher.group(0);
                 int digit = Integer.parseInt(matcher.group(2));
@@ -34,10 +34,10 @@ public class Ascent {
                     }
                 }
                 String decodedString = sb.toString();
-                input = input.replaceAll(match, decodedString);
+                line = line.replaceAll(match, decodedString);
                 memo.put(match, decodedString);
             }
-            System.out.println(input);
+            System.out.println(line);
         }
     }
 }

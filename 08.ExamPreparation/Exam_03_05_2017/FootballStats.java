@@ -9,8 +9,8 @@ public class FootballStats {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Map<String, Map<String, List<String>>> matches = new HashMap<>();
-        for (String input = reader.readLine(); !input.equals("Season End"); input = reader.readLine()) {
-            String[] tokens = input.split(" - | ");
+        for (String line = reader.readLine(); !line.equals("Season End"); line = reader.readLine()) {
+            String[] tokens = line.split(" - | ");
             String firstTeam = tokens[0];
             String secondTeam = tokens[1];
             String score = tokens[3];

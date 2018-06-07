@@ -24,8 +24,8 @@ public class Robotics {
             robotTimes.put(name, 0L);
         }
         Deque<String> productsQueue = new ArrayDeque<>();
-        for (String input = reader.readLine(); !input.equals("End"); input = reader.readLine()) {
-            productsQueue.offer(input);
+        for (String line = reader.readLine(); !line.equals("End"); line = reader.readLine()) {
+            productsQueue.offer(line);
         }
         while (!productsQueue.isEmpty()) {
             time++;
