@@ -25,7 +25,7 @@ public class LittleJohn {
                 }
             }
         }
-        int number = smallArrows * 100 + mediumArrows * 10 + largeArrows;
+        int number = Integer.parseInt("" + smallArrows + mediumArrows + largeArrows);
         String binaryString = Integer.toBinaryString(number);
         String reversedBinaryString = new StringBuilder(binaryString).reverse().toString();
         String finalBinaryString = binaryString + reversedBinaryString;
