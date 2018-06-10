@@ -44,6 +44,5 @@ public class Ranking {
                     .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
                     .forEach(kvp -> System.out.printf("#  %s -> %d%n", kvp.getKey(), kvp.getValue()));
         });
-
     }
 }
