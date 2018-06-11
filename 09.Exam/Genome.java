@@ -14,16 +14,16 @@ public class Genome {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String regex = "^([a-z!@#$?]+)=(\\d+)--(\\d+)<<([a-z]+)$";
         Pattern pattern = Pattern.compile(regex);
-        Map<String, Long> genomes = new LinkedHashMap<>();
+        Map<String, Integer> genomes = new LinkedHashMap<>();
         for (String line = reader.readLine(); !line.equals("Stop!"); line = reader.readLine()) {
             Matcher matcher = pattern.matcher(line);
             if (matcher.find()) {
                 String name = matcher.group(1).replaceAll("[!@#$?]+", "");
                 int length = Integer.parseInt(matcher.group(2));
                 if (name.length() == length) {
-                    long count = Long.parseLong(matcher.group(3));
+                    int count = Integer.parseInt(matcher.group(3));
                     String type = matcher.group(4);
-                    genomes.putIfAbsent(type, 0L);
+                    genomes.putIfAbsent(type, 0);
                     genomes.put(type, genomes.get(type) + count);
                 }
             }
