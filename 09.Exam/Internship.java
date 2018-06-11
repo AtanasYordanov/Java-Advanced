@@ -16,7 +16,7 @@ public class Internship {
         for (int i = 0; i < n; i++) {
             problemsStack.push(reader.readLine());
         }
-        String regex = "[A-Z][a-z]+? [A-Z][a-z]+";
+        String regex = "[A-Z][a-z]+ [A-Z][a-z]+";
         for (int i = 0; i < m; i++) {
             String name = reader.readLine();
             if (name.matches(regex)) {
