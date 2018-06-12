@@ -15,7 +15,7 @@ public class Person {
         this.name = name;
         pokemons = new ArrayList<>();
         children = new ArrayList<>();
-        parents = new ArrayList<>();
+        parents = new ArrayList<>(2);
     }
 
     public String getName() {
