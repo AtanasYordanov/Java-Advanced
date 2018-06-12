@@ -1,0 +1,24 @@
+package t01_DefiningClasses.p09_Google;
+
+public class Relative {
+    private String name;
+    private String birthday;
+
+    public Relative(String name, String birthday) {
+        this.name = name;
+        this.birthday = birthday;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.name, this.birthday);
+    }
+}
