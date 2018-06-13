@@ -31,11 +31,7 @@ public class Main {
                 if (hasElementType) {
                     trainer.addBadge();
                 } else {
-                    List<Pokemon> pokemons = trainer.getPokemons();
-                    for (int i = pokemons.size() - 1; i >= 0; i--) {
-                        pokemons.get(i).reduceHealth();
-                    }
-                    pokemons.removeIf(p -> p.getHealth() <= 0);
+                    trainer.reducePokemonHealth();
                 }
             }
         }

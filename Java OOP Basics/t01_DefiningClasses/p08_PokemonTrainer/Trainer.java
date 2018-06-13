@@ -38,4 +38,11 @@ public class Trainer {
     public String toString() {
         return String.format("%s %d %d", this.name, this.badgesCount, this.pokemons.size());
     }
+
+    public void reducePokemonHealth() {
+        for (Pokemon pokemon : pokemons) {
+            pokemon.reduceHealth();
+        }
+        pokemons.removeIf(p -> p.getHealth() <= 0);
+    }
 }
