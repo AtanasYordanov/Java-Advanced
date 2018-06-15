@@ -26,10 +26,6 @@ public class Trainer {
         return this.badgesCount;
     }
 
-    public List<Pokemon> getPokemons() {
-        return this.pokemons;
-    }
-
     public void addBadge() {
         this.badgesCount++;
     }
@@ -44,5 +40,14 @@ public class Trainer {
             pokemon.reduceHealth();
         }
         pokemons.removeIf(p -> p.getHealth() <= 0);
+    }
+
+    public boolean hasElementType(String element) {
+        return this.pokemons.stream()
+                .anyMatch(p -> p.getElement().equals(element));
+    }
+
+    public void addPokemon(Pokemon pokemon) {
+        this.pokemons.add(pokemon);
     }
 }
