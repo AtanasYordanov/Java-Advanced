@@ -18,7 +18,7 @@ public class Topping extends BasicIngredient {
         if (weight < WEIGHT_MIN_VALUE || weight > WEIGHT_MAX_VALUE) {
             throw new IllegalArgumentException(String.format(INVALID_TOPPING_WEIGHT_MESSAGE, this.type.toString()));
         }
-        this.weight = weight;
+        super.weight = weight;
     }
 
     public void setType(String type) {

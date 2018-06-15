@@ -38,7 +38,7 @@ public class Dough extends BasicIngredient {
         if (weight < WEIGHT_MIN_VALUE || weight > WEIGHT_MAX_VALUE) {
             throw new IllegalArgumentException(INVALID_DOUGH_WEIGHT_MESSAGE);
         }
-        super.setWeight(weight);
+        super.weight = weight;
     }
 
     @Override
