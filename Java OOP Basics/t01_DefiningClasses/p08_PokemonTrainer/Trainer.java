@@ -1,6 +1,6 @@
 package t01_DefiningClasses.p08_PokemonTrainer;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Trainer {
@@ -11,7 +11,7 @@ public class Trainer {
     public Trainer(String name) {
         this.name = name;
         this.badgesCount = 0;
-        this.pokemons = new ArrayList<>();
+        this.pokemons = new LinkedList<>();
     }
 
     public String getName() {
@@ -43,8 +43,7 @@ public class Trainer {
     }
 
     public boolean hasElementType(String element) {
-        return this.pokemons.stream()
-                .anyMatch(p -> p.getElement().equals(element));
+        return this.pokemons.stream().anyMatch(p -> p.getElement().equals(element));
     }
 
     public void addPokemon(Pokemon pokemon) {
