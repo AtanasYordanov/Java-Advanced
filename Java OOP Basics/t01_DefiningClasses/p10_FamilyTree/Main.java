@@ -37,8 +37,8 @@ public class Main {
         printOutput(targetPerson);
     }
 
-    private static void addConnection(Map<String, Person> peopleByName, Map<String
-            , Person> peopleByBirthdate, String dateRegex, String line) {
+    private static void addConnection(Map<String, Person> peopleByName
+            , Map<String, Person> peopleByBirthdate, String dateRegex, String line) {
         String[] tokens = line.split(" - ");
         Person parent;
         Person child;
