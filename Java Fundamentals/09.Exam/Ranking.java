@@ -30,11 +30,11 @@ public class Ranking {
             }
         }
         userContests.entrySet().stream()
-                .sorted(Comparator.comparing(kvp -> kvp.getValue().values().stream().mapToInt(Integer::valueOf).sum()
+                .sorted(Comparator.comparing(kvp -> kvp.getValue().values().stream().mapToInt(а -> а).sum()
                         , Comparator.reverseOrder()))
                 .limit(1)
                 .forEach(kvp -> {
-                    int totalPoints = kvp.getValue().values().stream().mapToInt(Integer::valueOf).sum();
+                    int totalPoints = kvp.getValue().values().stream().mapToInt(а -> а).sum();
                     System.out.printf("Best candidate is %s with total %d points.%n", kvp.getKey(), totalPoints);
                 });
         System.out.println("Ranking:");
