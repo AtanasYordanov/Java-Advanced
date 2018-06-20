@@ -1,6 +1,6 @@
 package t06_ExamPreparation.Exam_05_01_2018.model;
 
-import t06_ExamPreparation.Exam_05_01_2018.model.constants.Messages;
+import t06_ExamPreparation.Exam_05_01_2018.constants.Messages;
 
 import java.util.Comparator;
 import java.util.HashMap;

@@ -4,9 +4,9 @@ import t06_ExamPreparation.Exam_05_01_2018.model.Colonist;
 import t06_ExamPreparation.Exam_05_01_2018.model.Colony;
 import t06_ExamPreparation.Exam_05_01_2018.model.Family;
 import t06_ExamPreparation.Exam_05_01_2018.model.colonists.*;
-import t06_ExamPreparation.Exam_05_01_2018.model.constants.Classes;
-import t06_ExamPreparation.Exam_05_01_2018.model.constants.Commands;
-import t06_ExamPreparation.Exam_05_01_2018.model.constants.Messages;
+import t06_ExamPreparation.Exam_05_01_2018.constants.Classes;
+import t06_ExamPreparation.Exam_05_01_2018.constants.Commands;
+import t06_ExamPreparation.Exam_05_01_2018.constants.Messages;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class Main {
                     colony.grow(years);
                     break;
                 case Commands.POTENTIAL:
-                    System.out.printf("potential: %d%n", colony.getPotential());
+                    System.out.println(colony.getPotential());
                     break;
                 case Commands.CAPACITY:
                     System.out.println(colony.getCapacity());
