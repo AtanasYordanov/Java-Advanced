@@ -81,7 +81,7 @@ public class WarManager implements Manager {
     }
 
     @Override
-    public String addHeroToArena(String arena, String hero) {
+    public String addHeroToArena(String arenaName, String hero) {
         if (this.assignedCharacters.containsKey(hero)){
             return String.format("%s is fighting!", hero);
         }
@@ -89,18 +89,18 @@ public class WarManager implements Manager {
         if (character.getHealth() <= 0){
            return String.format("%s is dead!", hero);
         }
-        Arena arenaClass = this.arenas.get(arena);
-        if (arenaClass.isArenaFull()){
+        Arena arena = this.arenas.get(arenaName);
+        if (arena.isArenaFull()){
             return "Arena is full!";
         }
-        arenaClass.addHero(character);
+        arena.addHero(character);
         this.assignedCharacters.put(character.getName(), character);
-        this.arenasFighters.get(arena).add(character);
-        return String.format("%s is fighting for your freedom in %s!", hero, arena);
+        this.arenasFighters.get(arenaName).add(character);
+        return String.format("%s is fighting for your freedom in %s!", hero, arenaName);
     }
 
     @Override
-    public String addAntiHeroToArena(String arena, String antiHero) {
+    public String addAntiHeroToArena(String arenaName, String antiHero) {
         if (this.assignedCharacters.containsKey(antiHero)){
             return String.format("%s is fighting!", antiHero);
         }
@@ -108,14 +108,14 @@ public class WarManager implements Manager {
         if (character.getHealth() <= 0){
             return String.format("%s is dead!", antiHero);
         }
-        Arena arenaClass = this.arenas.get(arena);
-        if (arenaClass.isArenaFull()){
+        Arena arena = this.arenas.get(arenaName);
+        if (arena.isArenaFull()){
             return "Arena is full!";
         }
-        arenaClass.addAntiHero(character);
+        arena.addAntiHero(character);
         this.assignedCharacters.put(character.getName(), character);
-        this.arenasFighters.get(arena).add(character);
-        return String.format("%s and his colleagues are trying to take over %s!", antiHero, arena);
+        this.arenasFighters.get(arenaName).add(character);
+        return String.format("%s and his colleagues are trying to take over %s!", antiHero, arenaName);
     }
 
     @Override
@@ -128,15 +128,15 @@ public class WarManager implements Manager {
     }
 
     @Override
-    public String assignSuperPowerToComicCharacter(String comicCharacter, String superPower) {
-        SuperPower superPowerClass = this.superPowers.get(superPower);
-        if (this.assignedSuperPowers.containsKey(superPower) || superPowerClass == null){
-            return String.format("%s already assigned!", superPower);
+    public String assignSuperPowerToComicCharacter(String comicCharacterName, String superPowerName) {
+        SuperPower superPower = this.superPowers.get(superPowerName);
+        if (this.assignedSuperPowers.containsKey(superPowerName) || superPower == null){
+            return String.format("%s already assigned!", superPowerName);
         }
-        ComicCharacter character = this.heroes.getOrDefault(comicCharacter, this.antiHeroes.get(comicCharacter));
-        character.addSuperPower(superPowerClass);
-        this.assignedSuperPowers.put(superPower, superPowerClass);
-        return String.format("%s has a new super power!", comicCharacter);
+        ComicCharacter character = this.heroes.getOrDefault(comicCharacterName, this.antiHeroes.get(comicCharacterName));
+        character.addSuperPower(superPower);
+        this.assignedSuperPowers.put(superPowerName, superPower);
+        return String.format("%s has a new super power!", comicCharacterName);
     }
 
     @Override
@@ -146,23 +146,23 @@ public class WarManager implements Manager {
     }
 
     @Override
-    public String startBattle(String arena) {
-        Arena arenaClass = this.arenas.get(arena);
-        if (this.arenasFighters.get(arena).size() == 0){
+    public String startBattle(String arenaName) {
+        Arena arena = this.arenas.get(arenaName);
+        if (this.arenasFighters.get(arenaName).size() == 0){
             return "SAFE ZONE!";
         }
-        if  (arenaClass.fightHeroes()){
+        if  (arena.fightHeroes()){
             this.heroesBattlesWon++;
-            this.arenasFighters.get(arena).forEach(c ->this.assignedCharacters.remove(c.getName()));
-            this.arenas.remove(arena);
-            this.arenasFighters.remove(arena);
-            return String.format("Heroes won the battle of %s!", arena);
+            this.arenasFighters.get(arenaName).forEach(c ->this.assignedCharacters.remove(c.getName()));
+            this.arenas.remove(arenaName);
+            this.arenasFighters.remove(arenaName);
+            return String.format("Heroes won the battle of %s!", arenaName);
         }
         this.antiheroesBattlesWon++;
-        this.arenasFighters.get(arena).forEach(c ->this.assignedCharacters.remove(c.getName()));
-        this.arenas.remove(arena);
-        this.arenasFighters.remove(arena);
-        return String.format("Anti Heroes won the battle of %s!", arena);
+        this.arenasFighters.get(arenaName).forEach(c ->this.assignedCharacters.remove(c.getName()));
+        this.arenas.remove(arenaName);
+        this.arenasFighters.remove(arenaName);
+        return String.format("Anti Heroes won the battle of %s!", arenaName);
     }
 
 
