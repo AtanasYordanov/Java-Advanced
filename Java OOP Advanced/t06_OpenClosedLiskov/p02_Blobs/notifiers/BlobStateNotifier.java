@@ -20,4 +20,8 @@ public class BlobStateNotifier {
     public static void setWriter(Writer _writer) {
         writer = _writer;
     }
+
+    public static void startReportMode() {
+        reportMode = true;
+    }
 }
