@@ -2,25 +2,21 @@ package t06_OpenClosedLiskov.p02_Blobs.models;
 
 import t06_OpenClosedLiskov.p02_Blobs.interfaces.Attack;
 import t06_OpenClosedLiskov.p02_Blobs.interfaces.Behaviour;
-import t06_OpenClosedLiskov.p02_Blobs.interfaces.Writer;
+import t06_OpenClosedLiskov.p02_Blobs.notifiers.BlobStateNotifier;
 
 public class Blob {
-
-    private static boolean shouldReport = false;
 
     private String name;
     private int currentHealth;
     private int damage;
     private Behaviour behavior;
     private Attack attack;
-    private Writer writer;
 
     private int initialHealth;
     private int initialDamage;
 
-    public Blob(String name, int health, int damage, Behaviour behavior, Attack attack, Writer writer) {
+    public Blob(String name, int health, int damage, Behaviour behavior, Attack attack) {
         this.name = name;
-        this.writer = writer;
         this.currentHealth = health;
         this.damage = damage;
         this.behavior = behavior;
@@ -38,17 +34,13 @@ public class Blob {
 
         if (this.currentHealth <= 0) {
             this.currentHealth = 0;
-            if (shouldReport) {
-                this.writer.writeLine(String.format("Blob %s was killed", this.name));
-            }
+            BlobStateNotifier.notify(String.format("Blob %s was killed", this.name));
         }
 
         if (this.currentHealth <= this.initialHealth / 2 && !this.behavior.isTriggered()) {
             this.triggerBehavior();
-            if (shouldReport) {
-                this.writer.writeLine(String.format("Blob %s toggled %sBehavior"
-                        , this.name, this.behavior.getClass().getSimpleName()));
-            }
+            BlobStateNotifier.notify(String.format("Blob %s toggled %sBehavior"
+                    , this.name, this.behavior.getClass().getSimpleName()));
         }
     }
 

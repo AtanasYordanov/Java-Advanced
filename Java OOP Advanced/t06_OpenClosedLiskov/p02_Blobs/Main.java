@@ -8,6 +8,7 @@ import t06_OpenClosedLiskov.p02_Blobs.interfaces.Reader;
 import t06_OpenClosedLiskov.p02_Blobs.interfaces.Writer;
 import t06_OpenClosedLiskov.p02_Blobs.io.ConsoleReader;
 import t06_OpenClosedLiskov.p02_Blobs.io.ConsoleWriter;
+import t06_OpenClosedLiskov.p02_Blobs.notifiers.BlobStateNotifier;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
         AttackFactory attackFactory = new AttackFactory();
         Reader reader = new ConsoleReader();
         Writer writer = new ConsoleWriter();
+        BlobStateNotifier.setWriter(writer);
         Engine engine = new Engine(blobRepository, behaviourFactory, attackFactory, reader, writer);
         engine.run();
     }

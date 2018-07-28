@@ -33,7 +33,7 @@ public class CreateCommand implements Executable {
         String attackName = args[5];
         Behaviour behaviour = this.behaviourFactory.getInstance(behaviourName);
         Attack attack = this.attackFactory.getInstance(attackName);
-        Blob blob = new Blob(name, health, damage, behaviour, attack, this.writer);
+        Blob blob = new Blob(name, health, damage, behaviour, attack);
         this.blobService.addBlob(blob);
     }
 }
