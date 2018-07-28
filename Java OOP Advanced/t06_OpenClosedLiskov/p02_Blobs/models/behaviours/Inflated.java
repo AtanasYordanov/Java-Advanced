@@ -21,10 +21,8 @@ public class Inflated extends AbstractBehaviour {
         if (super.isTriggered) {
             if (super.toDelayRecurrentEffect()) {
                 super.setToDelayRecurrentEffect(false);
-            } else {
-                if (ticks-- > 0) {
-                    source.setHealth(source.getHealth() - INFLATED_HEALTH_DECREMENT);
-                }
+            } else if (this.ticks-- > 0) {
+                source.setHealth(source.getHealth() - INFLATED_HEALTH_DECREMENT);
             }
         }
     }

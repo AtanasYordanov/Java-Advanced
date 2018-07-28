@@ -13,6 +13,9 @@ import java.io.IOException;
 
 public class Engine implements Runnable {
 
+    private static final String SPLIT_DELIMITER = "\\s+";
+    private static final String END_COMMAND = "drop";
+
     private BlobService blobService;
     private CommandFactory commandFactory;
     private Reader reader;
@@ -27,9 +30,9 @@ public class Engine implements Runnable {
     @Override
     public void run() {
         try {
-            for (String line = reader.readLine(); !line.equals("drop"); line = reader.readLine()) {
+            for (String line = reader.readLine(); !line.equals(END_COMMAND); line = reader.readLine()) {
                 this.blobService.updateBlobs();
-                String[] tokens = line.split("\\s+");
+                String[] tokens = line.split(SPLIT_DELIMITER);
                 String commandName = tokens[0];
                 Executable command = this.commandFactory.getInstance(commandName);
                 if (command != null) {

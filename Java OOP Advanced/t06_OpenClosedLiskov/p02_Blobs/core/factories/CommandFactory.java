@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class CommandFactory implements Factory<Executable> {
 
+    private static final String PATH_TO_COMMANDS = "t06_OpenClosedLiskov.p02_Blobs.core.commands.";
+
     private BehaviourFactory behaviourFactory;
     private AttackFactory attackFactory;
     private BlobService blobService;
@@ -31,7 +33,7 @@ public class CommandFactory implements Factory<Executable> {
         name = name.split("-")[0];
         String commandName = Character.toUpperCase(name.charAt(0)) + name.substring(1) + "Command";
         try {
-            Class<?> clazz = Class.forName("t06_OpenClosedLiskov.p02_Blobs.core.commands." + commandName);
+            Class<?> clazz = Class.forName(PATH_TO_COMMANDS + commandName);
             Constructor constructor = clazz.getConstructor();
             Executable executable = (Executable) constructor.newInstance();
             this.injectDependencies(executable);

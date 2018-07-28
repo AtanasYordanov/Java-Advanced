@@ -91,6 +91,7 @@ public class Blob {
         if (this.getHealth() <= 0) {
             return String.format("Blob %s KILLED", this.getName());
         }
-        return String.format("Blob %s: %s HP, %s Damage", this.getName(), this.getHealth(), this.getDamage());
+        return String.format("Blob %s: %s HP, %s Damage"
+                , this.getName(), this.getHealth(), this.getDamage());
     }
 }
