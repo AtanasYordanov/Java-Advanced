@@ -7,6 +7,6 @@ public class Blobplode implements Attack {
     @Override
     public void execute(Blob attacker, Blob target) {
         target.respond(attacker.getDamage() * 2);
-        attacker.setHealth(attacker.getHealth() % 2 == 1 ? (attacker.getHealth() + 1) / 2 : attacker.getHealth() / 2);
+        attacker.setHealth(attacker.getHealth() - attacker.getHealth() / 2);
     }
 }
