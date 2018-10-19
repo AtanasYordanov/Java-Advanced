@@ -11,8 +11,8 @@ public class MaximumElement {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
         Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> trackStack = new ArrayDeque<>();
         StringBuilder sb = new StringBuilder();
-        int maxElement = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
             String[] tokens = reader.readLine().split(" ");
             String command = tokens[0];
@@ -20,22 +20,19 @@ public class MaximumElement {
                 case "1":
                     int element = Integer.parseInt(tokens[1]);
                     stack.push(element);
-                    if (element > maxElement) {
-                        maxElement = element;
+                    int maxElement = trackStack.isEmpty() ? element : trackStack.peek();
+                    if (element >= maxElement) {
+                        trackStack.push(element);
+                    } else {
+                        trackStack.push(maxElement);
                     }
                     break;
                 case "2":
-                    if (stack.pop() == maxElement) {
-                        maxElement = Integer.MIN_VALUE;
-                        for (Integer el : stack) {
-                            if (el > maxElement) {
-                                maxElement = el;
-                            }
-                        }
-                    }
+                    stack.pop();
+                    trackStack.pop();
                     break;
                 case "3":
-                    sb.append(maxElement).append(System.lineSeparator());
+                    sb.append(trackStack.peek()).append(System.lineSeparator());
                     break;
             }
         }
